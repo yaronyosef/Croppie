@@ -476,8 +476,8 @@
         self.elements.zoomer.addEventListener('change', change);
 
         if (self.options.mouseWheelZoom) {
-            self.elements.boundary.addEventListener('mousewheel', scroll);
-            self.elements.boundary.addEventListener('DOMMouseScroll', scroll);
+            self.elements.boundary.addEventListener('mousewheel', scroll, {passive: true});
+            self.elements.boundary.addEventListener('DOMMouseScroll', scroll, {passive: true});
         }
     }
 
@@ -697,8 +697,8 @@
             }
 
             transform = Transform.parse(self.elements.preview);
-            window.addEventListener('mousemove', mouseMove);
-            window.addEventListener('touchmove', mouseMove);
+            window.addEventListener('mousemove', mouseMove, {passive: true});
+            window.addEventListener('touchmove', mouseMove, {passive: true});
             window.addEventListener('mouseup', mouseUp);
             window.addEventListener('touchend', mouseUp);
             document.body.style[CSS_USERSELECT] = 'none';
