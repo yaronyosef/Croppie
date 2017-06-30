@@ -749,10 +749,10 @@
 
         function mouseUp() {
             isDragging = false;
-            window.removeEventListener('mousemove', mouseMove);
-            window.removeEventListener('touchmove', mouseMove);
+            window.removeEventListener('mousemove', mouseMove, {passive: true});
+            window.removeEventListener('touchmove', mouseMove, {passive: true});
             window.removeEventListener('mouseup', mouseUp);
-            window.removeEventListener('touchend', mouseUp);
+            window.removeEventListener('touchend', mouseUp, {passive: true});
             document.body.style[CSS_USERSELECT] = '';
             _updateCenterPoint.call(self);
             _triggerUpdate.call(self);
